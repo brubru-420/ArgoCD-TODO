@@ -6,7 +6,7 @@ metadata:
   labels:
     app: todo-api
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: todo-api
@@ -37,13 +37,13 @@ spec:
               memory: "256Mi"
           livenessProbe:
             httpGet:
-              path: /health
-              port: http
+              path: /  # Nginx répond à la racine, pas sur /health
+              port: 80 # Nginx écoute sur le port 80, pas 3000 ou "http"
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /health
-              port: http
+              path: /
+              port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
