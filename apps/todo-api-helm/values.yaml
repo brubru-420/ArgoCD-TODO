@@ -1,6 +1,8 @@
 replicaCount: 1
 image:
-  repository: ghcr.io/brubru-420/todo-api 
+  image:
+  repository: ghcr.io/brubru-420/todo-api  
+  tag: latest 
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
