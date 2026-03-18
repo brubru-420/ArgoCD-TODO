@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api
+spec:
+  replicas: 2 # On en met 2 pour différencier du dev !
+  template:
+    spec:
+      containers:
+        - name: todo-api
+          env:
+            - name: NODE_ENV
+              value: "staging"
